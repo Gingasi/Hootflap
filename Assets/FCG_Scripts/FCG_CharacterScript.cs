@@ -7,11 +7,15 @@ public class FCG_CharacterScript : MonoBehaviour
     public float Velocity = 1f;
     private Rigidbody2D HootyCharacter;
 
+    private AudioSource HootyChar;
+    public AudioClip HootHoot;
+
 
     // Start is called before the first frame update
     void Start()
     {
         HootyCharacter = GetComponent<Rigidbody2D>();
+        HootyChar = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,8 +27,11 @@ public class FCG_CharacterScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D othercollision)
     {
-        
+      if (othercollision.gameObject.CompareTag("Hoot"))
+        {
+            HootyChar.PlayOneShot(HootHoot, 1f);
+        }
     }
 }
