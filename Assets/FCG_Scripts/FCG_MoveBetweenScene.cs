@@ -26,4 +26,6 @@ public class FCG_MoveBetweenScene : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
+
+
 }

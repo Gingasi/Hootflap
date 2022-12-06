@@ -63,8 +63,9 @@ public class FCG_CharacterScript : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 0f;
+        FCG_ScoreScript.SearchUserRank();
+        FCG_ScoreScript.RankingUpdate();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
     }
 
     public void MovementHooty()
