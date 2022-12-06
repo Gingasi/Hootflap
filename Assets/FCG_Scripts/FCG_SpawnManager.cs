@@ -13,14 +13,18 @@ public class FCG_SpawnManager : MonoBehaviour
     private float zLim = 0f;
     private FCG_Score FCG_ScoreScript;
 
-    public int RiseSpeed = 20;
-    public int ScoreDistance = 1929;
+    private int NextLevel = 5;
+    public bool NextLevelisOn = true;
+
+
+
 
 
     void Start()
     {
         FCG_ScoreScript = GameObject.Find("FCG_ObstacleSpawn").GetComponent<FCG_Score>();
-        InvokeRepeating("InstanceObstacle", Initialtime, Repetitiontime);
+        NextLevelisOn = false;
+        RepeatingSpawn();
     }
 
     public Vector3 RandomSpawnPosition()
@@ -35,11 +39,35 @@ public class FCG_SpawnManager : MonoBehaviour
         Instantiate(Obstacle, RandomSpawnPosition(), Obstacle.transform.rotation);
     }
    
-   /*public void IncreaseSpeedSpawn()
+    public void RepeatingSpawn()
     {
-        if (FCG_ScoreScript.ScoreUp >= ScoreDistance)
+       if(FCG_ScoreScript.score >= NextLevel)
         {
-
+            NextLevelisOn = true;
+            SpeedSpawn();
         }
-    }*/
+        else
+        {
+            NextLevelisOn = false;
+            SpeedSpawn();
+        }
+        
+    }
+
+    public void SpeedSpawn()
+    {
+        if (NextLevelisOn == true)
+        {
+            InvokeRepeating("InstanceObstacle", Initialtime * 2, Repetitiontime * 2);
+        }
+        else
+        {
+            InvokeRepeating("InstanceObstacle", Initialtime, Repetitiontime);
+        }
+    }
+
+    private void Update()
+    {
+        
+    }
 }

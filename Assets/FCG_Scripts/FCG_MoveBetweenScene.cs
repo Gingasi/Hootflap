@@ -5,15 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class FCG_MoveBetweenScene : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void Starts()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-    }
-
-    public void Options()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
 
     }
 
@@ -22,5 +20,10 @@ public class FCG_MoveBetweenScene : MonoBehaviour
         Debug.Log("QuitGame");
         Application.Quit();
 
+    }
+
+    public void GoBackMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 }

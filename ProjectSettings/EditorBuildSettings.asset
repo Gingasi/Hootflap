@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/FCG_Scenes/FCG_IntroGame.unity
     guid: 43469135588d5454ab625ac82d3bc1b4
   - enabled: 1
-    path: Assets/FCG_Scenes/FCG_MenuGame.unity
+    path: Assets/FCG_Scenes/FCG_DeathPanel.unity
     guid: 5bc872e7d161a06499c70a3764bc881a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

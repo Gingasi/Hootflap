@@ -5,29 +5,39 @@ using TMPro;
 
 public class FCG_Score : MonoBehaviour
 {
-    public GameObject StartPos;
+    
     public TMP_Text ScoresUp;
-    public float Distance;
+    public int score;
+    private int NextLevel = 5;
+    private AudioSource Aaah;
+    public AudioClip HootHoot;
+
+    private FCG_SpawnManager FCG_SpawnManagerScript ;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        score = 0;
+        ScoresUp.text = score.ToString();
+        FCG_SpawnManagerScript = GameObject.Find("FCG_ObstacleSpawn").GetComponent<FCG_SpawnManager>();
+        Aaah = GetComponent<AudioSource>();
     }
 
     public void ScoreUp()
     {
-        Distance = (StartPos.transform.position.x + this.transform.position.x);
-        ScoresUp.text = Distance.ToString();
-
+        score++; 
+        ScoresUp.text = score.ToString();
 
     }
 
-    private void Update()
+    public void LevelUp()
     {
-        
+        if (score >= NextLevel)
+        {
+            Aaah.PlayOneShot(HootHoot, 1f);
+        }
     }
-
+  
 }

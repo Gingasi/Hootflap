@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FCG_CharacterScript : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class FCG_CharacterScript : MonoBehaviour
     public bool gameOver = false;
  
 
-    public GameObject DeathMenuUI;
+    
     private FCG_Score FCG_ScoreScript;
 
 
@@ -26,7 +27,7 @@ public class FCG_CharacterScript : MonoBehaviour
         FCG_ScoreScript = GameObject.Find("FCG_ObstacleSpawn").GetComponent<FCG_Score>();
         HootyCharacter = GetComponent<Rigidbody2D>();
         HootyChar = GetComponent<AudioSource>();
-        DeathMenuUI.SetActive(false);
+        
 
     }
 
@@ -46,14 +47,13 @@ public class FCG_CharacterScript : MonoBehaviour
 
       if (othercollision.gameObject.CompareTag("Obstacle")) 
         {
-            //HootyChar.PlayOneShot(BoomDeath, 1f); 
+            
             DeathPart.Play();
             Death();
         }
       if (othercollision.gameObject.CompareTag("Floor"))
         {
             Death();
-            //HootyChar.PlayOneShot(BoomDeath, 1f); 
             DeathPart.Play();
          
         }
@@ -63,7 +63,8 @@ public class FCG_CharacterScript : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 0f;
-        DeathMenuUI.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     public void MovementHooty()

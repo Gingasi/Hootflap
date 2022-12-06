@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class FCG_PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-   
+    public GameObject PauseMenuUI;
+
 
     void Start()
     {
         GameIsPaused = false;
+        PauseMenuUI.SetActive(false);
 
     }
     void Update()
@@ -32,14 +34,16 @@ public class FCG_PauseMenu : MonoBehaviour
     {
        
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        PauseMenuUI.SetActive(false);
+        GameIsPaused = false;
+
     }
 
     public void Pause()
     {
-        
+        GameIsPaused = true;
         Time.timeScale = 0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PauseMenuUI.SetActive(true);
     }
 
     public void LoadMenu()
