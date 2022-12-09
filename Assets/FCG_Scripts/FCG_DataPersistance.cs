@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FCG_DataPersistance : MonoBehaviour
 {
+    /*This script is the one were data persistances is stablished so it detects each score at each play so you can save it for the ranking score*/
+
     public static FCG_DataPersistance SharedInstance;
 
     public int FirstrstPlace;

@@ -6,6 +6,9 @@ using TMPro;
 public class FCG_Score : MonoBehaviour
 {
 
+   //This script detectsthe score in the game and shows it to the ui so the player has some feedback
+     
+
     public TMP_Text ScoresUp;
     public int score;
     private int NextLevel = 5;
@@ -52,7 +55,7 @@ public class FCG_Score : MonoBehaviour
         currentHighScores.Add(PlayerPrefs.GetInt("FifthPlace")); 
     }
 
-    public void SearchUserRank()
+    public void SearchUserRank() //Before showing the rank it search wich other score it has so it can array according to the highest five scores. If you dont qualify within those five you dont appear in the ranking score
     {
         { int scoreRank = 5;
 

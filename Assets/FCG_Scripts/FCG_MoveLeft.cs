@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class FCG_MoveLeft : MonoBehaviour
 {
-    private int movespeed = 500;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    
+   //The object attached with this script has to move left every time its spawned
 
     // Update is called once per frame
     void Update()
